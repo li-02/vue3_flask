@@ -27,10 +27,12 @@
                     <el-input v-model="registerUser.username" placeholder="Username"></el-input>
                 </el-form-item>
                 <el-form-item label="Password">
-                    <el-input v-model="registerUser.password" placeholder="Password"></el-input>
+                    <el-input type="password" show-password v-model="registerUser.password"
+                        placeholder="Password"></el-input>
                 </el-form-item>
                 <el-form-item label="check-Password">
-                    <el-input v-model="registerUser.checkPassword" placeholder="check-Password"></el-input>
+                    <el-input type="password" show-password v-model="registerUser.checkPassword"
+                        placeholder="check-Password"></el-input>
                 </el-form-item>
                 <el-form-item>
                     <el-button type="primary" @click="register">register</el-button>
@@ -48,6 +50,7 @@ import router from '@/router/index.js'
 export default {
     name: 'LoginView',
     setup() {
+
         let user = reactive({
             username: '',
             password: ''
@@ -59,12 +62,11 @@ export default {
             password: '',
             checkPassword: ''
         })
-
         function login() {
             console.log(user)
             userLogin({ 'username': user.username, 'password': user.password }).then(res => {
                 console.log(res)
-                router.replace({ path: '/ping' })
+                router.replace({ path: '/books' })
             }).catch(err => {
                 console.log(err)
             })

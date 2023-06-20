@@ -1,16 +1,15 @@
 from flask import Blueprint, request, jsonify, make_response
 from models.UserModel import UserModel as User
 from extensions import db
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 
 bp = Blueprint('user', __name__, url_prefix='/api/user')
-# dont forget add cors in blueprint!!!
+
 CORS(bp, resources={r"/api/*": {"origins": "*"}})
 
 
 # /user/login
 @bp.route('/login/', methods=['POST', 'OPTIONS'])
-# @cross_origin()
 def login():
     response = make_response()
     response.headers['Access-Control-Allow-Origin'] = '*'

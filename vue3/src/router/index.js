@@ -9,16 +9,6 @@ const router = createRouter({
       component: () => import('@/views/Login.vue')
     },
     {
-      path: '/ping',
-      name: 'Ping',
-      component: () => import('@/views/Ping.vue')
-    },
-    {
-      path: '/pong',
-      name: 'Pong',
-      component: () => import('@/views/Pong.vue')
-    },
-    {
       path: '/books',
       name: 'Books',
       component: () => import('@/views/Books.vue')
